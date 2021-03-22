@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Archivo+Black&family=Prompt:wght@300;600&display=swap" rel="stylesheet">        
+        <title>Cryptocorner</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="img_bcg"></div>
+            <header class="header">
+                <nav class="navbar">
+                    <ul class="navbar_items">
+                        <li class="navbar_item"><a href="/"><img src="./assets/images/cloud-storage.svg" class="img_logo"></a><p>Cryptocorner</p></li>
+                        <li><a href="#" class="navbar_item navbar_connexion">CONNEXION</a></li>
+                        <li><a href="#" class="navbar_item navbar_enregistrement">ENREGISTREMENT</a></li>
+                    </ul>
+                </nav>
+                <h1 class="main_h1">SUIVEZ LE MOUVEMENT</h1>    
+            </header>
+            <main>
+                <div id="container_crypto"></div>
+            </main>
+            <footer class="gnlFooter">
+                <span class="copyright">&copy; Cryptocorner</span>
+                <span class="randomLine"></span>
+                <h4>Mes contacts</h4>
+                <a href="https://www.linkedin.com/in/dassie-wilhelm-bb2813162/" class="linkedin"><img src="./assets/images/linkedin.png" alt="Lien linkedin D.Wilhelm"></a>
+                <a href="https://github.com/Wiwida" class="github"><img src="./assets/images/github-sign.png" alt="Lien github D.Wilhelm"></a>
+            </footer>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script type="text/javascript" src="./src/cardCrypto.js"></script>
+        <script type="text/javascript" src="./src/modals.js"></script>
+        <script type="text/javascript" src="./src/app.js"></script>
+    </body>
+
+    <!-- Modale enregistrement -->
+
+    <div id="modalRegistration" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-card">
+            <form action="/enregistrement" method="POST" class="formRegistration">
+                <header class="modal-card-head">
+                    <h2 class="modal-card-title">Enregistrez-vous :</h2>
+                    <button class="close" type="button" aria-label="close">x</button>
+                </header>
+                <section class="modal-card-body">
+                    <div class="field">
+                        <label for="email1">Email</label>
+                        <input type="email" id="email1" class="input" name="email1" placeholder="Email">
+                    </div>
+                    <div class="field">
+                        <label for="pseudo1">Votre pseudonyme</label>
+                        <input type="text" class="input" id="pseudo1" name="pseudo1" placeholder="Choisissez un pseudonyme">
+                    </div>
+                    <div class="field">
+                        <label for="password1">Mot de passe</label>
+                        <input type="password" class="input" id="password1" name="password1" placeholder="Mot de passe">
+                    </div>
+                    <div class="field">
+                        <label for="password2">Retapez le mot de passe</label>
+                        <input type="password" class="input" id="password2" name="password2" placeholder="Mot de passe">
+                    </div>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="btnForm btn_send" type="submit">Envoyer</button>
+                    <button class="btnForm btn_cancel" type="button">Annuler</button>
+                </footer>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modale authentification -->
+
+    <div id="modalConnect" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-card">
+            <form action="/connexion" method="POST" class="formRegistration">
+                <header class="modal-card-head">
+                    <h2 class="modal-card-title">Connectez-vous :</h2>
+                    <button class="close" type="button" aria-label="close">x</button>
+                </header>
+                <section class="modal-card-body">
+                    <div class="field">
+                        <label for="email1">Email</label>
+                        <input type="email" id="email1" class="input" name="email1" placeholder="Email">
+                    </div>
+                    <div class="field">
+                        <label for="password1">Mot de passe</label>
+                        <input type="password" class="input" id="password1" name="password1" placeholder="Mot de passe">
+                    </div>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="btnForm btn_send2" type="submit">Envoyer</button>
+                    <button class="btnForm btn_cancel" type="button">Annuler</button>
+                </footer>
+            </form>
+        </div>
+    </div>
+
+    <!-- Template page accueil  -->
+
+    <template id="home">
+        <div class='text'>
+            <section class="section_bitcoin">
+                <div class="overlay_h1">
+                    <div class="background_h1">
+                       <h1 class="h1_coin">RENTABILITE</h1> 
+                    </div>
+                </div>
+                <div class="general_coin">
+                    <div class="global">
+                        <div class="circle">
+                            <div class="face face1"></div>
+                            <div class="face face2"></div>
+                            <div class="face face3"></div>
+                            <div class="face face4"></div>
+                            <div class="face face5"></div>
+                            <div class="face face6"></div>
+                            <div class="face face7"></div>
+                            <div class="face face8"></div>
+                            <div class="face face9"></div>
+                            <div class="face face10"></div>
+                        </div> 
+                    </div>
+                </div>
+            </section>
+            <section class="textOne">
+                <div class="blocText">
+                    <h2 class="h2">Soyez actifs et non passifs</h2>
+                    <p class="textPara para1">
+                        Investir dans les monnaies virtuelles, aussi appelées monnaies numériques, revient à effectuer des placements financiers en Bourse. Que ce soit sur le long terme (stratégie du hold) ou sur le court terme (stratégie du trade), investir dans la crypto monnaie en 2021 est une pratique qui se démocratise, avec l’arrivée de monnaies prometteuses et une capitalisation boursière qui pourrait bien grimper. A titre d'exemple, entre 2020 et 2021 certaines cryptomonnaies ont connues une croissance de 750% ! De quoi faire rêver.
+                    </p>
+                </div>
+            </section>
+            <section class="textTwo">
+                <div class="blocTextend">
+                    <h2 class="h2">Explorez de nouvelles perspectives</h2>
+                    <p class="textPara para2">
+                        La technologie employée est celle de la « blockchain » (chaîne de blocs ou registre de transactions, en français) qui permet de garder la trace d'un ensemble de transactions, de manière décentralisée, sécurisée et transparente.
+                        Une fois créés, ces jetons sont stockés dans un coffre-fort électronique enregistré sur l’ordinateur, la tablette ou le portable de l’utilisateur, voire à distance (par exemple dans le cloud). Il est ensuite possible de les transférer via internet et de façon anonyme entre les membres de la communauté.                    </p>
+                </div>
+            </section>
+        </div>
+        <h1 class="h1Crypto">Nos cryptomonnaies :</h1>
+    </template>
+    
+    <!-- Template crypto -->
+
+    <template id="card_crypto">
+        
+        <div class="container_card" data-coin-id="">
+            <div class="crypto" >
+                <div class="container_nothidden">
+                    <img src="" alt="image symbole cryptomonnaie" class="img_crypto">
+                    <p class="curent_price"></p>
+                    <div class="key_numbers">
+                        <span></span>
+                        <img src="" alt="" class="img_upandlow">
+                    </div>
+                    <p class="name_crypto"></p>
+                </div>
+                <div class="hidden_card">
+                    <canvas id="myChart"></canvas>
+                    <!-- <div class="btn_evolution">
+                        <button class="btn">1Y</button>
+                        <button class="btn">1M</button>
+                        <button class="btn">7D</button>
+                        <button class="btn">1D</button>
+                    </div> -->
+                    <span class="symbol"></span>
+                </div>
+            </div>
+
+        </div>
+    </template>
+
+</html>
