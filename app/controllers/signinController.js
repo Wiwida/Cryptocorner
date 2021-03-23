@@ -1,16 +1,21 @@
 const {User, Role} = require('../models');
 const bcrypt = require('bcrypt');
+const validator = require('email-validator');
 
-module.exports = {
+const signinController = {
 
     enterInformations: async (req, res, next) => {
 
         const email = req.body.email1;
         const password = req.body.password1;
+        const password2 = req.body.password2;
         const pseudonyme = req.body.pseudo1;
 
-        try {
+        if (validator.validate(email) === false) {
+            res.status(500).json("Champ email invalide ou utilisé et/ou pseudonyme déjà utilisé");
+        };
 
+        try {
             const emailInDb = await User.findOne({ where: {email: `${email}`}});
             const pseudoInDb = await User.findOne({ where: {pseudonyme: `${pseudonyme}`}});
 
@@ -30,24 +35,22 @@ module.exports = {
                 // Maintenant on attribue au nouvel utilisateur un role
                 
                 const user = await User.findOne({ where: {email: `${email}`}});
-
-                console.log(user)
-                
                 const role = await Role.findByPk(2);
-                console.log(role)
+
                 if (user && role) {
 
-                    await user.addRole(role);
+                    await user.addUser(role);
 
                     const userEdit = await user.reload({
                         include: 'users'
                     });
 
                     res.json(userEdit); 
-                }
+                };
 
             } else {
-                next();
+                
+                res.status(500).json("Champ email invalide ou utilisé et/ou pseudonyme déjà utilisé");
             };
 
         } catch (error) {
@@ -57,3 +60,5 @@ module.exports = {
     },
 
 };
+
+module.exports = signinController;

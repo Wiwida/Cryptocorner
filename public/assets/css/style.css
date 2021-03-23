@@ -50,6 +50,29 @@
     border-bottom: 3px solid white;
     border-top: 3px solid white;
 }
+.navbar_dashboard {
+    display: none;
+    text-decoration: none;
+    color: white;
+    padding: 1.1em;
+    border-bottom: 3px solid white;
+    border-top: 3px solid white;
+    margin-left: 20em;
+    cursor: pointer;
+}
+.navbar_logout {
+    display: none;
+    text-decoration: none;
+    color: white;
+    padding: 1.1em;
+    border-bottom: 3px solid white;
+    border-top: 3px solid white;
+    cursor: pointer;
+}
+.navbar_logout a, .navbar_dashboard a {
+    text-decoration: none;
+    color: white;
+}
 .navbar_item {
     display: flex;
     flex-direction: row;
@@ -137,7 +160,19 @@
 .para2 {
     margin: 3em;
 }
-
+.overlayFormNotValid {
+    display: none;
+    position: absolute;
+    width: 90%;
+    top: 50%;
+    left: 50%;    
+    transform:translate(-50%, -50%);
+    border: red 1px solid;
+    padding: 1em;
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
+}
 /* Images : */
 
 .img_bcg {

@@ -1,0 +1,1 @@
+$ npx browserify -p tinyify -e public/src/app.js -o public/assets/js/bundle-min.js

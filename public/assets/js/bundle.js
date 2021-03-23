@@ -1,25 +1,23 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 // const cardCrypto = require('./cardCrypto');
 
 
 const app = {
 
     base_URL: 'https://api.coingecko.com/api/v3',
-    modal_URL: 'http://localhost:4700',
+    modal_URL: 'http://localhost:4800',
 
     init: async () => {
 
         cardModule.setBaseUrl(app.base_URL);
 
         modalsHome.setBaseUrl(app.modal_URL);
-        
-        navbarChange.setBaseUrl(app.modal_URL);
 
         app.showTemplateHome();
 
         await app.getCryptoFromAPI();
 
         app.addListenerToActions();
-
     },
 
     addListenerToActions: () => {
@@ -27,11 +25,8 @@ const app = {
         const cards = document.querySelectorAll('.container_card');
         const modalRegistration = document.querySelector('.navbar_connexion');
         const modalConnect = document.querySelector('.navbar_enregistrement');
-        const btnModalRegistration = document.querySelector('.formRegistration');
-        const btnModalConnect = document.querySelector('.formLogin');
         const btnClose = document.querySelectorAll('.close');
         const btnCancel = document.querySelectorAll('.btn_cancel');
-        const logout = document.querySelector('.navbar_logout');
 
         for (const card of cards) {
             card.addEventListener('click', cardModule.showChartAfterClick);
@@ -47,10 +42,6 @@ const app = {
 
         modalRegistration.addEventListener('click', modalsHome.showModal);
         modalConnect.addEventListener('click', modalsHome.showModal);
-        btnModalRegistration.addEventListener('submit', modalsHome.checkRegister);
-        btnModalConnect.addEventListener('submit', modalsHome.checkLogin);
-        logout.addEventListener('click', navbarChange.afterLogOut);
-        document.querySelector('.overlayFormNotValid').addEventListener('mouseenter', modalsHome.overlayErrorHidden);
     },
 
     getCryptoFromAPI: async () => {
@@ -91,3 +82,4 @@ const app = {
 }
 
 document.addEventListener('DOMContentLoaded', app.init);
+},{}]},{},[1]);

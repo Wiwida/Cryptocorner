@@ -16,9 +16,11 @@
             <header class="header">
                 <nav class="navbar">
                     <ul class="navbar_items">
-                        <li class="navbar_item"><a href="/"><img src="./assets/images/cloud-storage.svg" class="img_logo"></a><p>Cryptocorner</p></li>
-                        <li><a href="#" class="navbar_item navbar_connexion">CONNEXION</a></li>
-                        <li><a href="#" class="navbar_item navbar_enregistrement">ENREGISTREMENT</a></li>
+                        <li class="navbar_item"><a href="/"><img src="./assets/images/cloud-storage.svg" class="img_logo" alt="image logo de cryptocorner"></a><p>Cryptocorner</p></li>
+                        <li class="navbar_connexionLi"><a href="#" class="navbar_item navbar_connexion">CONNEXION</a></li>
+                        <li class="navbar_enregistrementLi"><a href="#" class="navbar_item navbar_enregistrement">ENREGISTREMENT</a></li>
+                        <li class="navbar_dashboard"><a href="#">DASHBOARD</a></li>
+                        <li class="navbar_logout"><a href="#">DECONNEXION</a></li>
                     </ul>
                 </nav>
                 <h1 class="main_h1">SUIVEZ LE MOUVEMENT</h1>    
@@ -37,6 +39,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <script type="text/javascript" src="./src/cardCrypto.js"></script>
         <script type="text/javascript" src="./src/modals.js"></script>
+        <script type="text/javascript" src="./src/navbarChange.js"></script>
         <script type="text/javascript" src="./src/app.js"></script>
     </body>
 
@@ -44,12 +47,13 @@
 
     <div id="modalRegistration" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="modal-card">
-            <form action="/enregistrement" method="POST" class="formRegistration">
+            <form action="" method="POST" class="formRegistration">
                 <header class="modal-card-head">
                     <h2 class="modal-card-title">Enregistrez-vous :</h2>
                     <button class="close" type="button" aria-label="close">x</button>
                 </header>
                 <section class="modal-card-body">
+                    <p class="overlayFormNotValid"></p>
                     <div class="field">
                         <label for="email1">Email</label>
                         <input type="email" id="email1" class="input" name="email1" placeholder="Email">
@@ -79,7 +83,7 @@
 
     <div id="modalConnect" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="modal-card">
-            <form action="/connexion" method="POST" class="formRegistration">
+            <form action="" method="POST" class="formLogin">
                 <header class="modal-card-head">
                     <h2 class="modal-card-title">Connectez-vous :</h2>
                     <button class="close" type="button" aria-label="close">x</button>

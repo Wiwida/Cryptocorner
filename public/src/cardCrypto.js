@@ -1,8 +1,8 @@
 const cardModule = {
 
     base_URL: null,
-    img_up: 'C:/Users/wilhe/OneDrive/Documents/Code/Projets/Cryptocorner/public/assets/images/right-up.svg',
-    img_low: 'C:/Users/wilhe/OneDrive/Documents/Code/Projets/Cryptocorner/public/assets/images/right-down.svg',
+    img_up: '../assets/images/right-up.svg',
+    img_low: '../assets/images/right-down.svg',
 
     setBaseUrl: url => {
         cardModule.base_URL = url;
@@ -39,7 +39,7 @@ const cardModule = {
     makeCardChart: (id, numbers) => {
 
         const chart = document.querySelector(`[data-coin-id="${id}"] #myChart`).getContext('2d');
-        // chart.height = 200
+
         const chartEvoCoinInWeek = new Chart(chart, {
 
             type: 'line',
