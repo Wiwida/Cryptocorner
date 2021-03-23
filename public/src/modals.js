@@ -44,7 +44,6 @@ const modalsHome = {
             });
 
             const json = await result.json();
-            console.log(json)
             const checkRegisterIsValid = modalsHome.checkRegisterIsValid(data, json);
 
             if (result.ok && checkRegisterIsValid) {
@@ -71,18 +70,20 @@ const modalsHome = {
         const password2 = data[3];
 
         if (json === 'Champ email invalide ou utilisé et/ou pseudonyme déjà utilisé' || emailValidOrNot === false) {
+
             overlayForm.textContent = 'Champ email invalide ou utilisé et/ou pseudonyme déjà utilisé';
             overlayForm.style.display = 'block';
             overlayForm.style.border = 'red 1px solid';
+
         } else {
 
-            if (password1.length < 8 && password1 !== password2) {
+            if (password1.length < 8 || password1 !== password2) {
 
                 overlayForm.textContent = 'Mot de passe incorrect';
                 overlayForm.style.border = 'red 1px solid';
                 overlayForm.style.display = 'block';
             } else {
-                
+
                 overlayForm.textContent = 'Vous êtes bien enregistré !';
                 overlayForm.style.border = 'green 1px solid';
                 overlayForm.style.display = 'block';
@@ -112,8 +113,9 @@ const modalsHome = {
                 navbarChange.changeNavbarAfterConnexion();
 
             } else {
-                console.error('On a eu un pépin sur le serveur');
-            }
+
+                document.querySelector('.overlayAuthNotValid').style.display = 'block';
+            };
 
         } catch (error) {
 

@@ -19,7 +19,7 @@ const signinController = {
             const emailInDb = await User.findOne({ where: {email: `${email}`}});
             const pseudoInDb = await User.findOne({ where: {pseudonyme: `${pseudonyme}`}});
 
-            if (emailInDb === null && pseudoInDb === null) {
+            if (emailInDb === null && pseudoInDb === null && password.length >= 8 && password === password2) {
 
                 const hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 
@@ -50,7 +50,7 @@ const signinController = {
 
             } else {
                 
-                res.status(500).json("Champ email invalide ou utilisé et/ou pseudonyme déjà utilisé");
+                res.status(500).json("Pseudonyme déjà utilisé et/ou mot de passe inférieur à 8 caractères");
             };
 
         } catch (error) {

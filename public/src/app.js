@@ -51,6 +51,8 @@ const app = {
         btnModalConnect.addEventListener('submit', modalsHome.checkLogin);
         logout.addEventListener('click', navbarChange.afterLogOut);
         document.querySelector('.overlayFormNotValid').addEventListener('mouseenter', modalsHome.overlayErrorHidden);
+        document.querySelector('.overlayAuthNotValid').addEventListener('mouseenter', modalsHome.overlayErrorHidden);
+
     },
 
     getCryptoFromAPI: async () => {

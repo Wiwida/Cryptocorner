@@ -160,7 +160,7 @@
 .para2 {
     margin: 3em;
 }
-.overlayFormNotValid {
+.overlayFormNotValid, .overlayAuthNotValid {
     display: none;
     position: absolute;
     width: 90%;
@@ -173,6 +173,7 @@
     text-align: center;
     font-weight: bold;
 }
+
 /* Images : */
 
 .img_bcg {
@@ -429,11 +430,11 @@ canvas {
     background-clip: text;
     -webkit-background-clip: text;
     background-position: center;
-    font-size: 7em;
+    font-size: 8em;
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: 0.5em;
     color: transparent;
-    margin-bottom: 2.5em;
+    z-index: 2;
 }
 .section_bitcoin {
     position: relative;
@@ -461,9 +462,9 @@ canvas {
     background: rgb(252,255,169);
     background: radial-gradient(circle, rgba(252,255,169,1) 23%, rgba(255,231,0,0.9164040616246498) 71%);
     border-radius: 100%;
-    min-width: 159.5px;
-    min-height: 159.5px;
-    margin-top: 25em;
+    min-width: 140px;
+    min-height: 140px;
+    margin-top: 21em;
     
 }
 .face1 {
@@ -527,15 +528,69 @@ canvas {
 @keyframes spin {
     0% {
         transform:rotateY(0deg);
-        right: 42em;
+        right: 50em;
+        z-index: 0;
+    }
+    7% {
+        z-index: 3;
+    }
+    11% {
+        z-index: 0;
+    }
+    15% {
+        z-index: 3;
+    }
+    22% {
+        z-index: 0;
+    }
+    25% {
+        z-index: 3;
+    }
+    31% {
+        z-index: 0;
+    }
+    36% {
+        z-index: 3;
+    }
+    40% {
+        z-index: 0;
+    }
+    45% {
+        z-index: 3;
     }
     50% {
-        transform:rotateY(720deg);
-        right: -39em;
+        transform:rotateY(1600deg);
+        right: -45em;
+        z-index: 0;
+    }
+    56% {
+        z-index: 3;
+    }
+    61% {
+        z-index: 0;
+    }
+    64% {
+        z-index: 3;
+    }
+    73% {
+        z-index: 0;
+    }
+    78% {
+        z-index: 3;
+    }
+    85% {
+        z-index: 0;
+    }
+    96% {
+        z-index: 3;
+    }
+    98% {
+        z-index: 0;
     }
     100% {
         transform:rotateY(0deg);
-        right: 42em;
+        right: 50em;
+        z-index: 0;
     }
 }
 

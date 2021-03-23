@@ -12,14 +12,14 @@ const loginController = {
 
             if (!checkMembersInDb) {
 
-                res.status(500).json("Nom d'utilisateur ou mot de passe incorrect ..."); 
+                res.status(500).json("Nom d'utilisateur ou mot de passe incorrect (si inférieur à 8 caractères)"); 
             };
 
             const checkPassword = bcrypt.compareSync(password, checkMembersInDb.password);
 
             if (!checkPassword) {
                 
-                res.status(500).json("Nom d'utilisateur ou mot de passe incorrect ..."); 
+                res.status(500).json("Nom d'utilisateur ou mot de passe incorrect (si inférieur à 8 caractères)"); 
             };
 
             //l'utilisateur est connecté, on stocke les infos utiles en session
@@ -29,7 +29,7 @@ const loginController = {
                 role: checkMembersInDb.role
             };
 
-            res.json(checkMembersInDb);
+            res.json("Bienvenue");
 
         } catch (error) {
             res.status(500).send('On a eu un pépin', error);
