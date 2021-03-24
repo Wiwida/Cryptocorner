@@ -33,7 +33,7 @@ const modalsHome = {
 
         const data = [];
 
-        for (var pair of formData.entries()) {
+        for (let pair of formData.entries()) {
             data.push(pair[1]); 
         };
 
@@ -48,8 +48,9 @@ const modalsHome = {
 
             if (result.ok && checkRegisterIsValid) {
 
-                event.target.closest('.modal').style.display = 'none'; 
-                
+                const disappearValidAfterTime = setTimeout(() => {event.target.closest('.modal').style.display = 'none'}, 500);  
+                clearTimeout(disappearValidAfterTime); 
+
             } else {
                 console.error('On a eu un pépin sur le serveur');
             }
@@ -69,9 +70,9 @@ const modalsHome = {
         const password1 = data[2];
         const password2 = data[3];
 
-        if (json === 'Champ email invalide ou utilisé et/ou pseudonyme déjà utilisé' || emailValidOrNot === false) {
+        if (json === 'Champ email invalide ou utilisé et/ou pseudonyme déjà utilisé' || emailValidOrNot === false || json === 'Pseudonyme/email déjà utilisé et/ou mot de passe inférieur à 8 caractères') {
 
-            overlayForm.textContent = 'Champ email invalide ou utilisé et/ou pseudonyme déjà utilisé';
+            overlayForm.textContent = `${json}`;
             overlayForm.style.display = 'block';
             overlayForm.style.border = 'red 1px solid';
 
@@ -87,6 +88,8 @@ const modalsHome = {
                 overlayForm.textContent = 'Vous êtes bien enregistré !';
                 overlayForm.style.border = 'green 1px solid';
                 overlayForm.style.display = 'block';
+
+                return true;
             };
         };
     },

@@ -27,7 +27,6 @@ const signinController = {
                     email: email,
                     password: hash,
                     pseudonyme: pseudonyme,
-                    status: 0,
                 });
 
                 const result = await newUser.save();
@@ -50,7 +49,7 @@ const signinController = {
 
             } else {
                 
-                res.status(500).json("Pseudonyme déjà utilisé et/ou mot de passe inférieur à 8 caractères");
+                res.status(500).json("Pseudonyme/email déjà utilisé et/ou mot de passe inférieur à 8 caractères");
             };
 
         } catch (error) {

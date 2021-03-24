@@ -11,8 +11,7 @@ CREATE TABLE IF NOT EXISTS "user" (
   "id" serial PRIMARY KEY,
   "email" text NOT NULL,
   "password" text NOT NULL,
-  "pseudonyme" text NOT NULL,
-  "status" integer NOT NULL
+  "pseudonyme" text NOT NULL
 );
 
 -- -----------------------------------------------------

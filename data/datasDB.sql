@@ -1,7 +1,7 @@
 BEGIN;
 
-INSERT INTO "user" ("id", "email", "password", "pseudonyme", "status") VALUES
-(1, 'admin@admin.fr', 'admin', 'admingnl', 0);
+INSERT INTO "user" ("id", "email", "password", "pseudonyme") VALUES
+(1, 'admin@admin.fr', 'admin', 'admingnl');
 
 INSERT INTO "role" ("id", "name") VALUES
 (1, 'Admin'),
