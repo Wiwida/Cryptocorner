@@ -1,11 +1,13 @@
 const {User, Role} = require('../models');
+// Cryptage du mdp 
 const bcrypt = require('bcrypt');
+// Outil qui nous aide dans la gestion en back des email (double validation front et back)
 const validator = require('email-validator');
 
 const signinController = {
 
     enterInformations: async (req, res, next) => {
-
+        // On récupère les infos de l'utilisateur qui veux s'enregistrer
         const email = req.body.email1;
         const password = req.body.password1;
         const password2 = req.body.password2;

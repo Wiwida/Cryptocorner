@@ -7,29 +7,35 @@ const navbarChange = {
         navbarChange.modal_URL = url;
     },
 
-    changeNavbarAfterConnexion: () => {
+    changeNavbar: () => {
 
         const liConnexion = document.querySelector('.navbar_connexionLi');
         const liEnregistrement = document.querySelector('.navbar_enregistrementLi');
         const dashboard = document.querySelector('.navbar_dashboard');
         const logout = document.querySelector('.navbar_logout');
-
-        liEnregistrement.style.display = 'none';
-        liConnexion.style.display = 'none';
-        dashboard.style.display = 'block';
-        logout.style.display = 'block';
+        // Changement de la navbar de CONNEXION ENREGISTREMENT à DASHBOARD DECONNEXION
+        if (liEnregistrement.style.display === 'none') {
+            liEnregistrement.style.display = 'block';
+            liConnexion.style.display = 'block';
+            dashboard.style.display = 'none';
+            logout.style.display = 'none';
+        } else {
+            liEnregistrement.style.display = 'none';
+            liConnexion.style.display = 'none';
+            dashboard.style.display = 'block';
+            logout.style.display = 'block';
+        };
     },
+    // Modale page dashboard en construction
+    pageDashboardBuild: (event) => {
+        console.log(event.target)
+        const modalBuild = document.querySelector('#modalBuild');
+        console.log(modalBuild)
+        if (modalBuild.style.display === 'none' || modalBuild.style.display === '') {
 
-    afterLogOut: () => {
-       
-        const dashboard = document.querySelector('.navbar_dashboard');
-        const logout = document.querySelector('.navbar_logout');
-        const liConnexion = document.querySelector('.navbar_connexionLi');
-        const liEnregistrement = document.querySelector('.navbar_enregistrementLi');
-
-        logout.style.display = 'none';
-        dashboard.style.display = 'none';
-        liConnexion.style.display = 'block';
-        liEnregistrement.style.display = 'block';
-    },
+            modalBuild.style.display = 'block';
+        } else {
+            modalBuild.style.display = 'none'
+        }
+    }
 };

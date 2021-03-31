@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 
 const session = require('express-session');
-
+// Initialisation ou réactualisation pour savoir si l'user à des cookies
 const userSessionMW = require('./app/middlewares/sessionUserMW');
 
 const app = express();
@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 const router = require('./app/router')
 
 const cors = require('cors');
-
+// Cookies
 app.use(session({
     saveUninitialized: true,
     resave: true,

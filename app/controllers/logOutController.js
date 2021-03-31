@@ -1,12 +1,11 @@
 const logOutController = {
-
+    // On deconnecte l'user (on lui 'enleve' les cookies)
     makeLogOut: async (req, res) => {
 
-        //on rest les infos du user dans la session
+        //on test les infos du user dans la session
         req.session.user = false;
 
         res.json(userLogOut);
-        //on redirige sur la page d'accueil
     }
 };
 

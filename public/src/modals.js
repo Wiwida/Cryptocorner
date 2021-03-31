@@ -7,10 +7,9 @@ const modalsHome = {
     },
 
     showModal: (event) => {
-
+        // On affiche la modale
         const modalRegistration = document.getElementById('modalRegistration');
         const modalConnect = document.getElementById('modalConnect');
-        const linkConnect = document.querySelector('.navbar_connexion');
         const linkRegistration = document.querySelector('.navbar_enregistrement');
         
         if (event.target === linkRegistration) {
@@ -21,22 +20,22 @@ const modalsHome = {
     },
 
     hideModal: (event) => {
-
+        // On la cache
         event.target.closest('.modal').style.display = 'none';
     },
 
     checkRegister: async (event) => {
 
         event.preventDefault();
-
+        // On passe par un formdata et multer en back pour analyser les reponses donnés par l'user
         const formData = new FormData(event.target);
-
+        // On aura besoin de ce tableau qui contiendra les données filtré pour gerer la structure des reponses (pseudo deja utilisé ..) dans la prochaine fonction
         const data = [];
 
         for (let pair of formData.entries()) {
             data.push(pair[1]); 
         };
-
+        // On envoi tout en BDD via une promesse
         try {
             const result = await fetch(`${modalsHome.modal_URL}/enregistrement`, {
                 method: 'POST',
@@ -48,8 +47,7 @@ const modalsHome = {
 
             if (result.ok && checkRegisterIsValid) {
 
-                const disappearValidAfterTime = setTimeout(() => {event.target.closest('.modal').style.display = 'none'}, 500);  
-                clearTimeout(disappearValidAfterTime); 
+                event.target.closest('.modal').style.display = 'none';
 
             } else {
                 console.error('On a eu un pépin sur le serveur');
@@ -63,7 +61,7 @@ const modalsHome = {
     },
 
     checkRegisterIsValid: (data, json) => {
-
+        // On vérifie tout les champs input 
         const emailReg = new RegExp(/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/i);
         const emailValidOrNot = emailReg.test(data[0]);
         const overlayForm = document.querySelector('.overlayFormNotValid');
@@ -79,7 +77,7 @@ const modalsHome = {
         } else {
 
             if (password1.length < 8 || password1 !== password2) {
-
+                // On fait apparaitre des petit overlay pour dire si tout s'est bien passé ou non
                 overlayForm.textContent = 'Mot de passe incorrect';
                 overlayForm.style.border = 'red 1px solid';
                 overlayForm.style.display = 'block';
@@ -100,7 +98,7 @@ const modalsHome = {
     },
 
     checkLogin: async (event) => {
-
+        // On vérifie ici si le login est en bdd
         event.preventDefault();
         const formData = new FormData(event.target);
 
@@ -113,7 +111,7 @@ const modalsHome = {
             if (result.ok) {
 
                 event.target.closest('.modal').style.display = 'none';
-                navbarChange.changeNavbarAfterConnexion();
+                navbarChange.changeNavbar();
 
             } else {
 
