@@ -1,5 +1,5 @@
 
-![Demo CountPages alpha](/public/assets/images/cryptocorner.gif)]
+![Demo CountPages alpha](/public/assets/images/cryptocorner.gif)
 
 **Attention le GIF est fortement compressé d'où la 'latence' qui n'est pas observé normalement.**
 'clideo.com' est le filtre installé par le convertisseur.
